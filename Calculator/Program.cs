@@ -4,11 +4,6 @@ namespace Calculator
 {
     public class Calculator
     { 
-        private static void Main()
-        {
-            System.Console.WriteLine("Hello World");
-        }
-
         public double Divide(double a, double b)
         {
             if (b == 0) return 0;
