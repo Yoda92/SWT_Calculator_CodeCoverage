@@ -3,10 +3,16 @@
 namespace Calculator
 {
     public class Calculator
-    { 
+    {
+        public double Accumulator { get; private set; }
         private static void Main()
         {
             System.Console.WriteLine("Hello World");
+        }
+
+        public void Clear()
+        {
+            Accumulator = 0;
         }
 
         public double Divide(double a, double b)
