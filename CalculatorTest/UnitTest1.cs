@@ -13,6 +13,12 @@ namespace CalculatorTest
             _calc = new Calculator.Calculator();
         }
 
+        [Test]
+        public void TestConstructor()
+        {
+            Assert.That(_calc.Accumulator == 0);
+        }
+
         // TESTING DIVIDE
         [TestCase(2, 2, 1)]
         [TestCase(10, 5, 2)]

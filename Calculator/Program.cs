@@ -3,7 +3,14 @@
 namespace Calculator
 {
     public class Calculator
-    { 
+    {
+        public double Accumulator { get; private set; }
+
+        public void Clear()
+        {
+            Accumulator = 0;
+        }
+
         public double Divide(double a, double b)
         {
             if (b == 0) return 0;
