@@ -22,10 +22,10 @@ namespace CalculatorTest
         // TESTING DIVIDE
         [TestCase(2, 2, 1)]
         [TestCase(10, 5, 2)]
-        [TestCase(10, 0, 0)]
         public void TestDivide(double a, double b, double result)
         {
-            Assert.That(_calc.Divide(a, b), Is.EqualTo(result).Within(0.05));
+            if (b == 0) Assert.That(_calc.Divide(a, b), Throws.Exception);
+            else Assert.That(_calc.Divide(a, b), Is.EqualTo(result).Within(0.05));
         }
 
         // TESTING ADD
