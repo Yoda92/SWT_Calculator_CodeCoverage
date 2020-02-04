@@ -124,5 +124,15 @@ namespace CalculatorTest
             _calc.Power(3);
             Assert.That(_calc.Accumulator, Is.EqualTo(64));
         }
+
+        [Test]
+        public void TestAccumulatorClear()
+        {
+            _calc.Add(2);
+            Assert.That(_calc.Accumulator, Is.EqualTo(2));
+            _calc.Clear();
+            Assert.That(_calc.Accumulator, Is.EqualTo(0));
+            
+        }
     }
 }
