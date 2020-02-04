@@ -36,7 +36,7 @@ namespace CalculatorTest
         }
 
         // TESTING ADD
-        [TestCase(3, 7, 12)]
+        [TestCase(3, 7, 10)]
         [TestCase(12.5,-7.5,5)]
         [TestCase(3.3,4.3,7.6)]
         public void TestAdd(double a, double b, double result)
