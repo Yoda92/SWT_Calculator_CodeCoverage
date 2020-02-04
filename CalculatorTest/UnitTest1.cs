@@ -26,8 +26,13 @@ namespace CalculatorTest
         [TestCase(10, 5, 2)]
         public void TestDivide(double a, double b, double result)
         {
-            if (b == 0) Assert.That(_calc.Divide(a, b), Throws.Exception);
-            else Assert.That(_calc.Divide(a, b), Is.EqualTo(result).Within(0.05));
+            Assert.That(_calc.Divide(a, b), Is.EqualTo(result).Within(0.05));
+        }
+
+        [Test]
+        public void TestDivideException()
+        {
+            Assert.Throws<System.DivideByZeroException>(() => _calc.Divide(10, 0));
         }
 
         // TESTING ADD
