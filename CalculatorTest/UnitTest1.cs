@@ -1,5 +1,7 @@
+using System;
 using NUnit.Framework;
 using Calculator;
+using Microsoft.VisualStudio.TestPlatform.Common.Utilities;
 
 namespace CalculatorTest
 {
@@ -65,6 +67,57 @@ namespace CalculatorTest
         public void TestPower(double a, double b, double result)
         {
             Assert.That(_calc.Power(a,b), Is.EqualTo(result).Within(0.05));
+        }
+
+        [Test]
+        public void TestAccumulatorAdd()
+        {
+            _calc.Add(5);
+            Assert.That(_calc.Accumulator, Is.EqualTo(5));
+            _calc.Add(3);
+            Assert.That(_calc.Accumulator, Is.EqualTo(8));
+        }
+
+        [Test]
+        public void TestAccumulatorSub()
+        {
+            _calc.Subtract(5);
+            Assert.That(_calc.Accumulator, Is.EqualTo(-5));
+            _calc.Subtract(-6);
+            Assert.That(_calc.Accumulator, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void TestAccumulatorMultiply()
+        {
+            _calc.Add(15);
+            _calc.Multiply(2);
+            Assert.That(_calc.Accumulator, Is.EqualTo(30));
+            _calc.Multiply(0.5);
+            Assert.That(_calc.Accumulator, Is.EqualTo(15));
+        }
+
+        [Test]
+        public void TestAccumulatorDivide()
+        {
+            _calc.Add(60);
+            _calc.Divide(2);
+            Assert.That(_calc.Accumulator, Is.EqualTo(30));
+            _calc.Divide(2);
+            Assert.That(_calc.Accumulator, Is.EqualTo(15));
+            
+            //Dividing by zero fails
+            Assert.Throws<System.DivideByZeroException>(() => _calc.Divide(0));
+        }
+
+        [Test]
+        public void TestAccumulatorPower()
+        {
+            _calc.Add(2);
+            _calc.Power(2);
+            Assert.That(_calc.Accumulator, Is.EqualTo(4));
+            _calc.Power(3);
+            Assert.That(_calc.Accumulator, Is.EqualTo(64));
         }
     }
 }
