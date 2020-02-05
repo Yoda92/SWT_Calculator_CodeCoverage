@@ -24,6 +24,7 @@ namespace CalculatorTest
         // TESTING DIVIDE
         [TestCase(2, 2, 1)]
         [TestCase(10, 5, 2)]
+        [TestCase(4, 0.5, 8)]
         public void TestDivide(double a, double b, double result)
         {
             Assert.That(_calc.Divide(a, b), Is.EqualTo(result).Within(0.05));
@@ -81,6 +82,8 @@ namespace CalculatorTest
             Assert.That(_calc.Accumulator, Is.EqualTo(5));
             _calc.Add(3);
             Assert.That(_calc.Accumulator, Is.EqualTo(8));
+            _calc.Add(4);
+            Assert.That(_calc.Accumulator, Is.EqualTo(12));
         }
 
         [Test]
@@ -90,6 +93,8 @@ namespace CalculatorTest
             Assert.That(_calc.Accumulator, Is.EqualTo(-5));
             _calc.Subtract(-6);
             Assert.That(_calc.Accumulator, Is.EqualTo(1));
+            _calc.Subtract(-2);
+            Assert.That(_calc.Accumulator, Is.EqualTo(-1));
         }
 
         [Test]
@@ -100,6 +105,8 @@ namespace CalculatorTest
             Assert.That(_calc.Accumulator, Is.EqualTo(30));
             _calc.Multiply(0.5);
             Assert.That(_calc.Accumulator, Is.EqualTo(15));
+            _calc.Multiply(-1);
+            Assert.That(_calc.Accumulator, Is.EqualTo(-15));
         }
 
         [Test]
@@ -110,7 +117,9 @@ namespace CalculatorTest
             Assert.That(_calc.Accumulator, Is.EqualTo(30));
             _calc.Divide(2);
             Assert.That(_calc.Accumulator, Is.EqualTo(15));
-            
+            _calc.Divide(3);
+            Assert.That(_calc.Accumulator, Is.EqualTo(5));
+
             //Dividing by zero fails
             Assert.Throws<System.DivideByZeroException>(() => _calc.Divide(0));
         }
@@ -123,6 +132,8 @@ namespace CalculatorTest
             Assert.That(_calc.Accumulator, Is.EqualTo(4));
             _calc.Power(3);
             Assert.That(_calc.Accumulator, Is.EqualTo(64));
+            _calc.Power(0.5);
+            Assert.That(_calc.Accumulator, Is.EqualTo(8));
         }
 
         [Test]
