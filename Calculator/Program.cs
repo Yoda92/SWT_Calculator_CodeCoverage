@@ -67,5 +67,16 @@ namespace Calculator
             Accumulator = Power(Accumulator, exponent);
             return Accumulator;
         }
+
+        public double Modulus(double a, double b)
+        {
+            return a % b;
+        }
+
+        public double Modulus(double a)
+        {
+            Accumulator = Modulus(Accumulator, a);
+            return Accumulator;
+        }
     }
 }
