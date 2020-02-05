@@ -75,7 +75,9 @@ namespace CalculatorTest
             Assert.That(_calc.Power(a,b), Is.EqualTo(result).Within(0.05));
         }
 
-        [TestCase(10,2,1)]
+        [TestCase(10,2,0)]
+        [TestCase(5, 2, 1)]
+        [TestCase(20, 6, 2)]
         public void testModulus(double a, double b, double result)
         {
             Assert.That(_calc.Modulus(a, b), Is.EqualTo(result).Within(0.05));
