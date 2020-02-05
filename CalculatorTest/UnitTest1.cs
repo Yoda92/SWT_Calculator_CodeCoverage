@@ -78,9 +78,21 @@ namespace CalculatorTest
         [TestCase(10,2,0)]
         [TestCase(5, 2, 1)]
         [TestCase(20, 6, 2)]
-        public void testModulus(double a, double b, double result)
+        public void TestModulus(double a, double b, double result)
         {
             Assert.That(_calc.Modulus(a, b), Is.EqualTo(result).Within(0.05));
+        }
+
+        public void TestAccumulatorModulus(double a, double b, double result)
+        {
+            _calc.Add(10);
+            _calc.Modulus(5);
+            Assert.That(_calc.Accumulator, Is.EqualTo(0));
+            _calc.Add(100);
+            _calc.Modulus(47);
+            Assert.That(_calc.Accumulator, Is.EqualTo(6));
+            _calc.Modulus(5);
+            Assert.That(_calc.Accumulator, Is.EqualTo(1));
         }
 
         [Test]
