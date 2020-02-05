@@ -93,7 +93,7 @@ namespace CalculatorTest
             Assert.That(_calc.Accumulator, Is.EqualTo(-5));
             _calc.Subtract(-6);
             Assert.That(_calc.Accumulator, Is.EqualTo(1));
-            _calc.Subtract(-2);
+            _calc.Subtract(2);
             Assert.That(_calc.Accumulator, Is.EqualTo(-1));
         }
 
