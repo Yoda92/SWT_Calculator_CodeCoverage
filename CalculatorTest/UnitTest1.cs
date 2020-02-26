@@ -83,7 +83,8 @@ namespace CalculatorTest
             Assert.That(_calc.Modulus(a, b), Is.EqualTo(result).Within(0.05));
         }
 
-        public void TestAccumulatorModulus(double a, double b, double result)
+        [Test]
+        public void TestAccumulatorModulus()
         {
             _calc.Add(10);
             _calc.Modulus(5);
